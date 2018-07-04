@@ -11,9 +11,11 @@ app.use(bodyParser.text());
 
 app.use(express.static("public"));
 
-db.sequelize.sync().then(()=>{
+db.sequelize.sync({force:true}).then(()=>{
     app.listen(PORT,()=>{
         console.log('connected');
     });
 });
+
+
 
